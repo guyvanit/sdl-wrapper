@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "sdl_window.h"
 #include "sdl_exceptions.h"
 
@@ -10,6 +12,7 @@ Window::Window(const std::string &title, int x, int y, int w, int h, Uint32 flag
     if(win_==NULL){
         throw Exception("Window::Window()");
     }
+    std::cout << "SDL Window initalised successfully." << std::endl;
 
 }
 
@@ -17,6 +20,7 @@ Window::~Window(){
     if(win_!=NULL){
         SDL_DestroyWindow(win_);
     }
+    std::cout << "SDL Window destroyed successfully." << std::endl;
 }
 
 SDL_Window* Window::get_window(){
