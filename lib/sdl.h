@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 
+namespace SDLwrap{
+
 class SDL{
 
     public:
@@ -10,5 +12,7 @@ class SDL{
         ~SDL();
 
 };
+
+}
 
 #endif
