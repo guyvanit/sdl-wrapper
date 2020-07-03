@@ -4,6 +4,8 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+namespace SDLwrap{
+
 class Window{
 
     SDL_Window* win_;
@@ -25,5 +27,7 @@ class Window{
         SDL_Window* get_window();
 
 };
+
+}
 
 #endif

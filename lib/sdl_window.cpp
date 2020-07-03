@@ -1,6 +1,8 @@
 #include "sdl_window.h"
 #include "sdl_exceptions.h"
 
+namespace SDLwrap{
+
 Window::Window(const std::string &title, int x, int y, int w, int h, Uint32 flags){
 
     // initalise SDL Window object and test for NULL
@@ -21,4 +23,4 @@ SDL_Window* Window::get_window(){
     return win_;
 }
 
-
+}
