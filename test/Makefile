@@ -8,8 +8,8 @@ LD2FLAG = -framework SDL2_image -I /Library/Frameworks/SDL2_image.framework/Head
 all: test
 
 # link all the other object files to construct the executable
-test: test.o sdl.o sdl_ex.o
-	$(CXX) $(LDFLAGS) $(LD2FLAG) -o test test.o sdl.o sdl_ex.o
+test: test.o sdl.o sdl_ex.o sdl_win.o
+	$(CXX) $(LDFLAGS) $(LD2FLAG) -o test test.o sdl.o sdl_ex.o sdl_win.o
 	rm *.o
 
 # create object file for our main test file -> contains main()
@@ -23,6 +23,10 @@ sdl.o: $(LIBDIR)/sdl.cpp $(LIBDIR)/sdl.h
 # create object file for SDL exceptions
 sdl_ex.o: $(LIBDIR)/sdl_exceptions.cpp $(LIBDIR)/sdl_exceptions.h
 	$(CXX) $(CXXFLAGS) -c -o sdl_ex.o $(LIBDIR)/sdl_exceptions.cpp
+
+# create object file for SDL widow wrapper
+sdl_win.o: $(LIBDIR)/sdl_window.cpp $(LIBDIR)/sdl_window.h
+	$(CXX) $(CXXFLAGS) -c -o sdl_win.o $(LIBDIR)/sdl_window.cpp
 
 clean:
 	rm *.o test

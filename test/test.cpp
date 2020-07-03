@@ -9,4 +9,7 @@ int main(){
     // initalise SDL env
     SDLwrap::SDL sdl = SDLwrap::SDL();
 
+    // initalise window wrapper object
+    SDLwrap::Window win = SDLwrap::Window();
+
 }
