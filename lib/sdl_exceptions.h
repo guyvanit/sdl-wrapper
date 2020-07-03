@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace SDLwrap{
+
 class Exception{
     std::string sdl_err_;
     // stores which function causes the exception to be thrown
@@ -17,5 +19,7 @@ class Exception{
         std::string get_fnc();
 
 };
+
+}
 
 #endif
