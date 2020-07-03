@@ -1,5 +1,5 @@
-#ifndef SDL
-#define SDL
+#ifndef SDL_H
+#define SDL_H
 
 #include <SDL2/SDL.h>
 

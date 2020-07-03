@@ -1,5 +1,5 @@
-#ifndef SDL_EXS
-#define SDL_EXS
+#ifndef SDL_EXS_H
+#define SDL_EXS_H
 
 #include <string>
 
