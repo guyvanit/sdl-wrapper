@@ -12,7 +12,7 @@ Window::Window(const std::string &title, int x, int y, int w, int h, Uint32 flag
     if(win_==NULL){
         throw Exception("Window::Window()");
     }
-    std::cout << "SDL Window initalised successfully." << std::endl;
+    std::cout << "SDL Window initalisation successful." << std::endl;
 
 }
 

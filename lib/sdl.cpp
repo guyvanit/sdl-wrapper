@@ -9,7 +9,7 @@ SDL::SDL(Uint32 flags){
     if(SDL_Init(flags)){
         throw Exception("SDL::SDL()");
     }
-    std::cout << "SDL Initalisation Successful." << std::endl;
+    std::cout << "SDL initalisation successful." << std::endl;
 }
 
 SDL::~SDL(){
