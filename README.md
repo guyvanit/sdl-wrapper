@@ -9,5 +9,5 @@ Simple wrapper for SDL resources in C++, for better initalisation and cleaning u
     - SDL_Renderer
     - SDL_Texture
 
-# EXTRA Plans:
+## EXTRA Plans:
 - Automated cross-platform library building -> cmake?
