@@ -15,7 +15,7 @@ int main(){ try{
         // initalise window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
 
-    }catch(SDLwrap::Exception e){
+    }catch(SDLwrap::Exception &e){
 
         std::cout << "SDL Error occured from: " << e.get_fnc() << std::endl;
         std::cout << "SDL Error: " << e.get_err() << std::endl;
