@@ -1,5 +1,6 @@
 CXX = g++-9
 LIBDIR = ../lib
+BINDIR = bin
 
 CXXFLAGS = -std=c++17 -Wall -F /Library/Frameworks -fPIC
 LDFLAGS = -framework SDL2 -I /Library/Frameworks/SDL2.framework/Headers
@@ -18,23 +19,23 @@ all: wrap_lib.so
 
 # construct shared library -> uses ".dylib" for MAC OS
 wrap_lib.so: sdl.o sdl_img.o sdl_ex.o sdl_win.o
-	$(CXX) $(LDFLAGS) $(LD2FLAG) -shared sdl.o sdl_img.o sdl_ex.o sdl_win.o -o wrap_lib.dylib
+	$(CXX) $(LDFLAGS) $(LD2FLAG) -shared $(BINDIR)/sdl.o $(BINDIR)/sdl_img.o $(BINDIR)/sdl_ex.o $(BINDIR)/sdl_win.o -o wrap_lib.dylib
 
 # create object file for SDL initalisation wrapper
 sdl.o: $(LIBDIR)/sdl.cpp $(LIBDIR)/sdl.h
-	$(CXX) $(CXXFLAGS) -c -o sdl.o $(LIBDIR)/sdl.cpp
+	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl.o $(LIBDIR)/sdl.cpp
 
 # create object file for SDL_IMG initalisation wrapper
 sdl_img.o: $(LIBDIR)/sdl_img.cpp $(LIBDIR)/sdl_img.h
-	$(CXX) $(CXXFLAGS) -c -o sdl_img.o $(LIBDIR)/sdl_img.cpp
+	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_img.o $(LIBDIR)/sdl_img.cpp
 
 # create object file for SDL exceptions
 sdl_ex.o: $(LIBDIR)/sdl_exceptions.cpp $(LIBDIR)/sdl_exceptions.h
-	$(CXX) $(CXXFLAGS) -c -o sdl_ex.o $(LIBDIR)/sdl_exceptions.cpp
+	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_ex.o $(LIBDIR)/sdl_exceptions.cpp
 
 # create object file for SDL widow wrapper
 sdl_win.o: $(LIBDIR)/sdl_window.cpp $(LIBDIR)/sdl_window.h
-	$(CXX) $(CXXFLAGS) -c -o sdl_win.o $(LIBDIR)/sdl_window.cpp
+	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_win.o $(LIBDIR)/sdl_window.cpp
 
 # --- cleaning commands ---
 
