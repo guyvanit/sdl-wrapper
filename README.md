@@ -11,4 +11,5 @@ Simple wrapper for SDL resources in C++, for better initalisation and cleaning u
     - SDL_Texture
 
 ## EXTRA Plans:
+- Turn into shared library (.so/.dylib) file??
 - Automated cross-platform library building -> cmake?
