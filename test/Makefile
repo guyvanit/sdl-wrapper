@@ -19,7 +19,7 @@ all: wrap_lib.so
 
 # construct shared library -> uses ".dylib" for MAC OS
 wrap_lib.so: sdl.o sdl_img.o sdl_ex.o sdl_win.o
-	$(CXX) $(LDFLAGS) $(LD2FLAG) -shared $(BINDIR)/sdl.o $(BINDIR)/sdl_img.o $(BINDIR)/sdl_ex.o $(BINDIR)/sdl_win.o -o wrap_lib.dylib
+	$(CXX) $(LDFLAGS) $(LD2FLAG) -shared -o wrap_lib.dylib $(BINDIR)/*.o
 
 # create object file for SDL initalisation wrapper
 sdl.o: $(LIBDIR)/sdl.cpp $(LIBDIR)/sdl.h
@@ -48,4 +48,4 @@ clean_lib:
 	rm wrap_lib.dylib
 
 clean_obj:
-	rm *.o
+	rm $(BINDIR)/*.o
