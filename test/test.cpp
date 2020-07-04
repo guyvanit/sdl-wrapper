@@ -4,6 +4,7 @@
 #include "../lib/sdl.h"
 #include "../lib/sdl_exceptions.h"
 #include "../lib/sdl_window.h"
+#include "../lib/sdl_img.h"
 
 #include "test.h"
 
@@ -11,6 +12,9 @@ int main(){ try{
 
         // initalise SDL env
         SDLwrap::SDL sdl = SDLwrap::SDL();
+
+        //initalise SDL_IMG
+        SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG();
 
         // initalise window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
