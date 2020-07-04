@@ -10,7 +10,7 @@ all: test
 # link all the other object files to construct the executable
 test: test.o sdl.o sdl_ex.o sdl_win.o
 	$(CXX) $(LDFLAGS) $(LD2FLAG) -o test test.o sdl.o sdl_ex.o sdl_win.o
-	rm *.o
+# 	rm *.o
 
 # create object file for our main test file -> contains main()
 test.o: test.cpp test.h
@@ -28,5 +28,12 @@ sdl_ex.o: $(LIBDIR)/sdl_exceptions.cpp $(LIBDIR)/sdl_exceptions.h
 sdl_win.o: $(LIBDIR)/sdl_window.cpp $(LIBDIR)/sdl_window.h
 	$(CXX) $(CXXFLAGS) -c -o sdl_win.o $(LIBDIR)/sdl_window.cpp
 
-clean:
-	rm *.o test
+# --- cleaning commands ---
+
+clean: clean_exe clean_obj
+
+clean_exe:
+	rm test
+
+clean_obj:
+	rm *.o
