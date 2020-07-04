@@ -7,7 +7,7 @@ namespace SDLwrap{
 
 SDL_IMG::SDL_IMG(int flags){
     int init = IMG_Init(flags);
-    if((init&flags) == flags){
+    if((init&flags) != flags){
         throw Exception("SDL_IMG::SDL_IMG()");
     }
     std::cout << "SDL_IMG initalisation successful." << std::endl;
