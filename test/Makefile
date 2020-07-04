@@ -1,7 +1,7 @@
 CXX = g++-9
 LIBDIR = ../lib
 
-CXXFLAGS = -std=c++17 -Wall -F /Library/Frameworks
+CXXFLAGS = -std=c++17 -Wall -F /Library/Frameworks -fPIC
 LDFLAGS = -framework SDL2 -I /Library/Frameworks/SDL2.framework/Headers
 LD2FLAG = -framework SDL2_image -I /Library/Frameworks/SDL2_image.framework/Headers
 
