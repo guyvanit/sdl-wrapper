@@ -38,7 +38,7 @@ sdl_win.o: $(INDIR)/sdl_window.cpp $(INDIR)/sdl_window.h
 
 setup: lib_copy h_copy
 
-lib_copy: wrap_lib
+lib_copy: libsdl_wrap.dylib
 	cp libsdl_wrap.dylib /usr/local/lib
 
 h_copy:
