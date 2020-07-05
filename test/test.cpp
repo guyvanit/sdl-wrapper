@@ -1,10 +1,7 @@
 #include <iostream>
 
 // NOTE: <SDL2/SDL.h> alrdy included in the wrapper files
-#include "../lib/sdl.h"
-#include "../lib/sdl_exceptions.h"
-#include "../lib/sdl_window.h"
-#include "../lib/sdl_img.h"
+#include "../lib/SDL_WRAP.h"
 
 #include "test.h"
 
