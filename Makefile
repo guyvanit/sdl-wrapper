@@ -45,6 +45,9 @@ h_copy:
 	mkdir -p /usr/local/include/SDLwrap
 	cd lib && cp *.h /usr/local/include/SDLwrap
 
+clean_setup:
+	rm /usr/local/lib/libsdl_wrap.dylib ; rm -r /usr/local/include/SDLwrap
+
 # --- cleaning commands ---
 
 clean: clean_lib clean_obj
@@ -54,7 +57,3 @@ clean_lib:
 
 clean_obj:
 	rm $(BINDIR)/*.o
-
-clean_installed:
-	rm /usr/local/lib/libsdl_wrap.dylib
-	rm -r /usr/local/include/SDL-wrap
