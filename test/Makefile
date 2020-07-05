@@ -1,59 +1,30 @@
 CXX = g++-9
 
-INDIR = ../lib
-BINDIR = bin
+# --- this makefile is used for constructing test file exectuable only ---
+# OUTDIR -> directory containing the dylib file for testing
 
-CXXFLAGS = -std=c++17 -Wall -F /Library/Frameworks -fPIC
-LDFLAGS = -framework SDL2 -I /Library/Frameworks/SDL2.framework/Headers
-LD2FLAG = -framework SDL2_image -I /Library/Frameworks/SDL2_image.framework/Headers
-
-all: wrap_lib
+all: test
 
 # ------------ TESTING FILES ------------
 
-OUTDIR = /Users/guy/Documents/CODES\ TIME/C++/dylib/lib
+# OUTDIR = /Users/guy/Documents/CODES\ TIME/C++/dylib/lib
+OUTDIR = ..
 
 # link all the other object files to construct the executable
 test: test.o $(OUTDIR)/libsdl_wrap.dylib
-	$(CXX) -o test -L$(OUTDIR) -lsdl_wrap test.o
-# 	rm *.o
+# 	$(CXX) -o test -L$(OUTDIR) -lsdl_wrap test.o
+	$(CXX) -o test  test.o $(OUTDIR)/libsdl_wrap.dylib
 
 # create object file for our main test file -> contains main()
 test.o: test.cpp test.h
 	$(CXX) -std=c++17 -Wall -c -o test.o test.cpp
 
-# ------------ SHARED LIBRARY CONSTRUCTION ------------
-
-# construct shared library -> uses ".dylib" for MAC OS
-# we use "-dynamiclib" instead of "-shared" (for OS X?)
-wrap_lib: sdl.o sdl_img.o sdl_ex.o sdl_win.o
-	$(CXX) $(LDFLAGS) $(LD2FLAG) -dynamiclib -o libsdl_wrap.dylib $(BINDIR)/*.o
-
-# create object file for SDL initalisation wrapper
-sdl.o: $(INDIR)/sdl.cpp $(INDIR)/sdl.h
-	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl.o $(INDIR)/sdl.cpp
-
-# create object file for SDL_IMG initalisation wrapper
-sdl_img.o: $(INDIR)/sdl_img.cpp $(INDIR)/sdl_img.h
-	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_img.o $(INDIR)/sdl_img.cpp
-
-# create object file for SDL exceptions
-sdl_ex.o: $(INDIR)/sdl_exceptions.cpp $(INDIR)/sdl_exceptions.h
-	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_ex.o $(INDIR)/sdl_exceptions.cpp
-
-# create object file for SDL widow wrapper
-sdl_win.o: $(INDIR)/sdl_window.cpp $(INDIR)/sdl_window.h
-	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_win.o $(INDIR)/sdl_window.cpp
-
 # --- cleaning commands ---
 
-clean: clean_lib clean_obj clean_exe
+clean: clean_obj clean_exe
 
 clean_exe:
 	rm test
 
-clean_lib:
-	rm libsdl_wrap.dylib
-
 clean_obj:
-	rm $(BINDIR)/*.o
+	rm *.o
