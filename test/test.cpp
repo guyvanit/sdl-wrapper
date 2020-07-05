@@ -1,8 +1,6 @@
 #include <iostream>
 
-// NOTE: <SDL2/SDL.h> alrdy included in the wrapper files
-#include "../lib/SDL_WRAP.h"
-
+#include "SDLwrap/SDL_WRAP.h"
 #include "test.h"
 
 int main(){ try{

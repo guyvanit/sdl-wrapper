@@ -7,13 +7,9 @@ all: test
 
 # ------------ TESTING FILES ------------
 
-# OUTDIR = /Users/guy/Documents/CODES\ TIME/C++/dylib/lib
-OUTDIR = ..
-
 # link all the other object files to construct the executable
-test: test.o $(OUTDIR)/libsdl_wrap.dylib
-# 	$(CXX) -o test -L$(OUTDIR) -lsdl_wrap test.o
-	$(CXX) -o test  test.o $(OUTDIR)/libsdl_wrap.dylib
+test: test.o /usr/local/lib/libsdl_wrap.dylib
+	$(CXX) -o test -L/usr/local/lib -lsdl_wrap -I/usr/local/include test.o
 
 # create object file for our main test file -> contains main()
 test.o: test.cpp test.h
