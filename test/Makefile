@@ -48,7 +48,7 @@ clean_exe:
 	rm test
 
 clean_lib:
-	rm wrap_lib.dylib
+	rm libsdl_wrap.dylib
 
 clean_obj:
 	rm $(BINDIR)/*.o
