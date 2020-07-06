@@ -15,7 +15,7 @@ all: wrap_lib
 
 # construct shared library -> uses ".dylib" for MAC OS
 # we use "-dynamiclib" instead of "-shared" (for OS X?)
-wrap_lib: sdl.o sdl_img.o sdl_ex.o sdl_win.o
+wrap_lib: sdl.o sdl_img.o sdl_ex.o sdl_win.o sdl_ren.o
 	$(CXX) $(LDFLAGS) $(LD2FLAG) -dynamiclib -o libsdl_wrap.dylib $(BINDIR)/*.o
 
 # create object file for SDL initalisation wrapper
@@ -30,9 +30,13 @@ sdl_img.o: $(INDIR)/sdl_img.cpp $(INDIR)/sdl_img.h
 sdl_ex.o: $(INDIR)/sdl_exceptions.cpp $(INDIR)/sdl_exceptions.h
 	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_ex.o $(INDIR)/sdl_exceptions.cpp
 
-# create object file for SDL widow wrapper
+# create object file for SDL window wrapper
 sdl_win.o: $(INDIR)/sdl_window.cpp $(INDIR)/sdl_window.h
 	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_win.o $(INDIR)/sdl_window.cpp
+
+# create object file for SDL renderer wrapper
+sdl_ren.o: $(INDIR)/sdl_renderer.cpp $(INDIR)/sdl_renderer.h
+	$(CXX) $(CXXFLAGS) -c -o $(BINDIR)/sdl_ren.o $(INDIR)/sdl_renderer.cpp
 
 # --- moving / setting-up commands ---
 

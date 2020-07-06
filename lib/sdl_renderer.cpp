@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "sdl_render.h"
+#include "sdl_renderer.h"
 #include "sdl_exceptions.h"
 
 namespace SDLwrap{
