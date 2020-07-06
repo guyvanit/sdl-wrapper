@@ -10,12 +10,12 @@ SDL_IMG::SDL_IMG(int flags){
     if((init&flags) != flags){
         throw Exception("SDL_IMG::SDL_IMG()");
     }
-    std::cout << "SDL_IMG initalisation successful." << std::endl;
+    std::cout << "SDL_IMG environment initalised." << std::endl;
 }
 
 SDL_IMG::~SDL_IMG(){
     IMG_Quit();
-    std::cout << "SDL_IMG environment cleaned up successfully." << std::endl;
+    std::cout << "SDL_IMG environment cleaned up." << std::endl;
 }
 
 }

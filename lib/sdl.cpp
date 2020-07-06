@@ -29,12 +29,12 @@ SDL::SDL(Uint32 flags){
     if(SDL_Init(flags)){
         throw Exception("SDL::SDL()");
     }
-    std::cout << "SDL initalisation successful." << std::endl;
+    std::cout << "SDL environment initialsed." << std::endl;
 }
 
 SDL::~SDL(){
     SDL_Quit();
-    std::cout << "SDL environment cleaned up successfully." << std::endl;
+    std::cout << "SDL environment cleaned up." << std::endl;
 }
 
 }
