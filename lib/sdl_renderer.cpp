@@ -20,4 +20,8 @@ Renderer::~Renderer(){
     }
 }
 
+SDL_Renderer* Renderer::get_renderer(){
+    return ren_;
+}
+
 }

@@ -12,6 +12,9 @@ class Renderer{
         Renderer(Window& window, int index=-1, Uint32 flags=SDL_RENDERER_ACCELERATED);
         ~Renderer();
 
+        // getter for SDL renderer
+        get_renderer();
+
 };
 
 }
