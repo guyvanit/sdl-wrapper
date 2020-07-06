@@ -14,6 +14,9 @@ int main(){ try{
         // initalise window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
 
+        // initalise renderer wrapper object
+        SDLwrap::Renderer ren = SDLwrap::Renderer(win);
+
     }catch(SDLwrap::Exception &e){
 
         std::cout << "SDL Error occured from: " << e.get_fnc() << std::endl;
