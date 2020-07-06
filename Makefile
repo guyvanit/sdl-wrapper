@@ -54,7 +54,7 @@ clean_setup:
 
 # --- cleaning commands ---
 
-clean: clean_lib clean_obj
+clean: clean_obj clean_lib
 
 clean_lib:
 	rm libsdl_wrap.dylib

@@ -5,8 +5,8 @@
 
 namespace SDLwrap{
 
-Renderer::Renderer(Window& window, int index, Uint32 flags){
-    ren_ = SDL_CreateRenderer(window, index, flags);
+Renderer::Renderer(Window &window, int index, Uint32 flags){
+    ren_ = SDL_CreateRenderer(window.get_window(), index, flags);
     if(ren_==NULL){
         throw Exception("Renderer::Renderer()");
     }
