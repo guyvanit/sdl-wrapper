@@ -13,6 +13,7 @@ all: wrap_lib
 
 # ------------ SHARED LIBRARY CONSTRUCTION ------------
 
+# var containing all object files needed to build library
 OBJS = sdl.o sdl_img.o sdl_exceptions.o sdl_window.o sdl_renderer.o
 
 # construct shared library -> uses ".dylib" for MAC OS
