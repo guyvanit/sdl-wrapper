@@ -5,6 +5,7 @@
 // ---------- SDL2.0 ----------
 #include "sdl.h"
 #include "sdl_window.h"
+#include "sdl_renderer.h"
 
 // ---------- SDL_IMG ----------
 #include "sdl_img.h"
