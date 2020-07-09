@@ -52,7 +52,7 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
     tex_ = texture;
 
     std::cout << "SDL Texture image loaded." << std::endl;
-    std::cout << "tex_height: "tex_height << ", tex_width: " << tex_width << std::endl;
+    std::cout << "tex_height: " << tex_height << ", tex_width: " << tex_width << std::endl;
 
 }
 
