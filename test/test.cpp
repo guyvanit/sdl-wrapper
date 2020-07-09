@@ -17,6 +17,10 @@ int main(){ try{
         // initalise renderer wrapper object
         SDLwrap::Renderer ren = SDLwrap::Renderer(win);
 
+        // initalise surface wrapper
+        SDLwrap::Surface surf = SDLwrap::Surface();
+        surf.loadFile("test_img.jpg");
+
     }catch(SDLwrap::Exception &e){
 
         std::cout << "SDL Error occured from: " << e.get_fnc() << std::endl;

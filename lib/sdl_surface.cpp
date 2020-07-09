@@ -1,3 +1,4 @@
+#include <iostream>
 #include <SDL2_image/SDL_image.h>
 
 #include "sdl_surface.h"
@@ -7,6 +8,7 @@ namespace SDLwrap{
 
     Surface::Surface(){
         surf_ = NULL;
+        std::cout << "SDL Surface initalised." << std::endl;
     }
 
     Surface::~Surface(){
@@ -18,6 +20,7 @@ namespace SDLwrap{
         if(surf_==NULL){
             throw Exception("Surface::loadFile");
         }
+        std::cout << "SDL_Surface image loaded." << std::endl;
     }
 
     void Surface::free(){
@@ -25,6 +28,7 @@ namespace SDLwrap{
              SDL_FreeSurface(surf_);
              surf_=NULL;
         }
+        std::cout << "SDL Surface freed." << std::endl;
     }
 
 }
