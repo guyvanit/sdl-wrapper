@@ -9,6 +9,8 @@ namespace SDLwrap{
 class Texture{
 
     SDL_Texture* tex_;
+    int tex_width;
+    int tex_height;
 
     public:
         Texture();

@@ -10,6 +10,8 @@ namespace SDLwrap{
 
 Texture::Texture(){
     tex_ = NULL;
+    tex_width = 0;
+    tex_height = 0;
     // std::cout << "SDL Texture initialised." << std::endl;
 }
 
@@ -39,10 +41,16 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
     texture = SDL_CreateTextureFromSurface(ren.get_renderer(), tempSurface.get_surface());
     if(texture == NULL){
         throw Exception("Texture::loadFile()");
+    }else{
+
+        tex_width = tempSurface.get_surface()->w;
+        tex_height = tempSurface.get_surface()->h;
+
     }
 
     // stores non-NULL texture into tex_
     tex_ = texture;
+
     // std::cout << "SDL Texture image loaded." << std::endl;
 
 }
