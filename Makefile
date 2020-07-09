@@ -14,7 +14,7 @@ all: wrap_lib
 # ------------ SHARED LIBRARY CONSTRUCTION ------------
 
 # var containing all object files needed to build library
-OBJS = sdl.o sdl_img.o sdl_exceptions.o sdl_window.o sdl_renderer.o sdl_texture.o
+OBJS = sdl.o sdl_img.o sdl_exceptions.o sdl_window.o sdl_renderer.o sdl_surface.o
 
 # construct shared library -> uses ".dylib" for MAC OS
 # we use "-dynamiclib" instead of "-shared" (for OS X?)

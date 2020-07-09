@@ -1,3 +1,5 @@
+#include <SDL2_image/SDL_image.h>
+
 #include "sdl_surface.h"
 #include "sdl_exceptions.h"
 
