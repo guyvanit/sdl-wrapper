@@ -15,7 +15,7 @@ Surface::~Surface(){
     free();
 }
 
-void Surface::loadFile(std::string fpath){
+void Surface::loadFile(std::string &fpath){
     surf_ = IMG_Load(fpath.c_str());
     if(surf_==NULL){
         throw Exception("Surface::loadFile");

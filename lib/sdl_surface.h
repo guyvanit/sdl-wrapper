@@ -15,7 +15,7 @@ class Surface{
         ~Surface();
 
         // ways of loading into SDL_Surface
-        void loadFile(std::string fpath);
+        void loadFile(std::string &fpath);
 
         // clean up surface
         void free();
