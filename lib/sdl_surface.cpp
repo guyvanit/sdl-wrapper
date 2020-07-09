@@ -8,7 +8,7 @@ namespace SDLwrap{
 
 Surface::Surface(){
     surf_ = NULL;
-    std::cout << "SDL Surface initalised." << std::endl;
+    // std::cout << "SDL Surface initalised." << std::endl;
 }
 
 Surface::~Surface(){
@@ -20,7 +20,7 @@ void Surface::loadFile(std::string &fpath){
     if(surf_==NULL){
         throw Exception("Surface::loadFile");
     }
-    std::cout << "SDL_Surface image loaded." << std::endl;
+    // std::cout << "SDL_Surface image loaded." << std::endl;
 }
 
 void Surface::free(){
@@ -28,7 +28,7 @@ void Surface::free(){
          SDL_FreeSurface(surf_);
          surf_=NULL;
     }
-    std::cout << "SDL Surface freed." << std::endl;
+    // std::cout << "SDL Surface freed." << std::endl;
 }
 
 SDL_Surface* Surface::get_surface(){

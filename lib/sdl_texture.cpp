@@ -10,7 +10,7 @@ namespace SDLwrap{
 
 Texture::Texture(){
     tex_ = NULL;
-    std::cout << "SDL Texture initialised." << std::endl;
+    // std::cout << "SDL Texture initialised." << std::endl;
 }
 
 Texture::~Texture(){
@@ -22,7 +22,7 @@ void Texture::free(){
         SDL_DestroyTexture(tex_);
         tex_ = NULL;
     }
-    std::cout << "SDL Texture freed." << std::endl;
+    // std::cout << "SDL Texture freed." << std::endl;
 }
 
 void Texture::loadFile(Renderer &ren, std::string &fpath){
@@ -43,7 +43,7 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
 
     // stores non-NULL texture into tex_
     tex_ = texture;
-    std::cout << "SDL Texture image loaded." << std::endl;
+    // std::cout << "SDL Texture image loaded." << std::endl;
 
 }
 
