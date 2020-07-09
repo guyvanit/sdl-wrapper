@@ -18,10 +18,10 @@ int main(){ try{
         SDLwrap::Renderer ren = SDLwrap::Renderer(win);
 
         // test surface wrapper
-        // SDLwrap::Surface surf = SDLwrap::Surface();
+        SDLwrap::Surface surf = SDLwrap::Surface();
         std::string fname = "test_img.jpg";
-        // surf.loadFile(fname);
-        // std::cout << surf.get_surface() << std::endl;
+        surf.loadFile(fname);
+        std::cout << surf.get_surface() << std::endl;
 
         // test texture wrapper
         SDLwrap::Texture tex = SDLwrap::Texture();
