@@ -66,7 +66,7 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     }
 
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
-    std::cout << "SDL Texture image rendered." << std::endl;
+    // std::cout << "SDL Texture image rendered." << std::endl;
 
 }
 
