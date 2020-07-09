@@ -20,6 +20,9 @@ class Texture{
         void loadFile(Renderer &ren, std::string &fpath);
         void loadText(std::string &text);
 
+        // rendering function
+        void render(Renderer &ren, int x=0, int y=0, SDL_Rect* clip=NULL);
+
         // clean up texture
         void free();
 

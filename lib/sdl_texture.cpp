@@ -55,4 +55,17 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
 
 }
 
+void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
+
+    // construct viewport quad
+    SDL_Rect renderQuad = {x, y, tex_width, tex_height};
+    if(clip != NULL){
+        renderQuad.w = clip->w;
+        renderQuad.h = clip->h;
+    }
+
+    SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
+
+}
+
 }
