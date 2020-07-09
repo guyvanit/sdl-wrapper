@@ -51,7 +51,8 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
     // stores non-NULL texture into tex_
     tex_ = texture;
 
-    // std::cout << "SDL Texture image loaded." << std::endl;
+    std::cout << "SDL Texture image loaded." << std::endl;
+    std::cout << tex_height << " : " << tex_width << std::endl;
 
 }
 
@@ -65,6 +66,7 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     }
 
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
+    std::cout << "SDL Texture image rendered." << std::endl;
 
 }
 
