@@ -6,6 +6,7 @@
 #include "sdl.h"
 #include "sdl_window.h"
 #include "sdl_renderer.h"
+#include "sdl_texture.h"
 
 // ---------- SDL_IMG ----------
 #include "sdl_img.h"
