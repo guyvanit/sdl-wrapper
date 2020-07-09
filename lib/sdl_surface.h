@@ -6,21 +6,23 @@
 
 namespace SDLwrap{
 
-    class Surface{
+class Surface{
 
-        SDL_Surface* surf_;
+    SDL_Surface* surf_;
 
-        public:
-            Surface();
-            ~Surface();
+    public:
+        Surface();
+        ~Surface();
 
-            // ways of loading into SDL_Surface
-            void loadFile(std::string fpath);
+        // ways of loading into SDL_Surface
+        void loadFile(std::string fpath);
 
-            // clean up surface
-            void free();
+        // clean up surface
+        void free();
 
-    };
+        SDL_Surface* get_surface();
+
+};
 
 }
 

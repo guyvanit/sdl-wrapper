@@ -20,6 +20,7 @@ int main(){ try{
         // initalise surface wrapper
         SDLwrap::Surface surf = SDLwrap::Surface();
         surf.loadFile("test_img.jpg");
+        std::cout << surf.get_surface() << std::endl;
 
     }catch(SDLwrap::Exception &e){
 
