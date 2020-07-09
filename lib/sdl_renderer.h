@@ -14,6 +14,15 @@ class Renderer{
         Renderer(Window &window, int index=-1, Uint32 flags=SDL_RENDERER_ACCELERATED);
         ~Renderer();
 
+        // -- wrapped SDL_Renderer functions --
+
+        // wraps SDL_SetRenderDrawColor()
+        void setDrawColor(Uint8 r=0xFF, Uint8 g=0xFF, Uint8 b=0xFF, Uint8 a=0xFF);
+        // wraps SDL_RenderClear()
+        void clear();
+        // wraps SDL_RenderPresent()
+        void update();
+
         // getter for SDL renderer
         SDL_Renderer* get_renderer();
 

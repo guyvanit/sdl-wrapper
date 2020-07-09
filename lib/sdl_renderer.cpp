@@ -20,6 +20,22 @@ Renderer::~Renderer(){
     }
 }
 
+// ------------ WRAPPED FUNCTIONS ------------
+
+void Renderer::setDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a){
+    SDL_SetRenderDrawColor(ren_, r, g, b, a);
+}
+
+void Renderer::clear(){
+    SDL_RenderClear(ren_);
+}
+
+void Renderer::update(){
+    SDL_RenderPresent(ren_);
+}
+
+// ---------------------------------------
+
 SDL_Renderer* Renderer::get_renderer(){
     return ren_;
 }

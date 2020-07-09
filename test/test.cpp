@@ -16,6 +16,9 @@ int main(){ try{
 
         // test renderer wrapper object
         SDLwrap::Renderer ren = SDLwrap::Renderer(win);
+        ren.setDrawColor();
+        ren.clear();
+        ren.update();
 
         // test surface wrapper
         SDLwrap::Surface surf = SDLwrap::Surface();
