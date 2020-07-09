@@ -2,25 +2,26 @@
 #define SDL_TEXTURE_H
 
 #include <SDL2/SDL.h>
+#include "sdl_renderer.h"
 
 namespace SDLwrap{
 
-    class Texture{
+class Texture{
 
-        SDL_Texture* tex_;
+    SDL_Texture* tex_;
 
-        public:
-            Texture();
-            ~Texture();
+    public:
+        Texture();
+        ~Texture();
 
-            // ways of loading texture into SDL_Texture
-            void loadFile(std::string fpath);
-            void loadText(std::string text);
+        // ways of loading texture into SDL_Texture
+        void loadFile(Renderer &ren, std::string &fpath);
+        void loadText(std::string &text);
 
-            // clean up texture
-            void free();
+        // clean up texture
+        void free();
 
-    };
+};
 
 }
 

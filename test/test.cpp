@@ -5,22 +5,27 @@
 
 int main(){ try{
 
-        // initalise SDL env
+        // test SDL env
         SDLwrap::SDL sdl = SDLwrap::SDL();
 
-        //initalise SDL_IMG
+        //test SDL_IMG
         SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG();
 
-        // initalise window wrapper object
+        // test window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
 
-        // initalise renderer wrapper object
+        // test renderer wrapper object
         SDLwrap::Renderer ren = SDLwrap::Renderer(win);
 
-        // initalise surface wrapper
+        // test surface wrapper
         SDLwrap::Surface surf = SDLwrap::Surface();
-        surf.loadFile("test_img.jpg");
+        std::string fname = "test_img.jpg";
+        surf.loadFile(fname);
         std::cout << surf.get_surface() << std::endl;
+
+        // test texture wrapper
+        SDLwrap::Texture tex = SDLwrap::Texture();
+        tex.loadFile(ren, fname);
 
     }catch(SDLwrap::Exception &e){
 
