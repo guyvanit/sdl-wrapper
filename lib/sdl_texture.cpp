@@ -21,16 +21,6 @@ Texture::~Texture(){
     free();
 }
 
-void Texture::free(){
-    if(tex_!=NULL){
-        SDL_DestroyTexture(tex_);
-        tex_ = NULL;
-        tex_width = 0;
-        tex_height = 0;
-    }
-    std::cout << "SDL Texture freed." << std::endl;
-}
-
 void Texture::loadFile(Renderer &ren, std::string &fpath){
 
     // free up old texture first
@@ -89,6 +79,24 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
     // std::cout << "SDL Texture image rendered." << std::endl;
 
+}
+
+void Texture::free(){
+    if(tex_!=NULL){
+        SDL_DestroyTexture(tex_);
+        tex_ = NULL;
+        tex_width = 0;
+        tex_height = 0;
+    }
+    std::cout << "SDL Texture freed." << std::endl;
+}
+
+int Texture::get_width(){
+    return tex_width;
+}
+
+int Texture::get_height(){
+    return tex_height;
 }
 
 }

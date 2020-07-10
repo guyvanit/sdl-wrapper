@@ -23,11 +23,13 @@ class Texture{
 
         // rendering function
         void render(Renderer &ren, int x=0, int y=0, SDL_Rect* clip=NULL);
-        // fit image size to size of window
-        void fitWindow(Window &win);
 
         // clean up texture
         void free();
+
+        // getters of vars
+        int get_width();
+        int get_height();
 
         // var indicating window to fit image to
         Window* fit_window;
