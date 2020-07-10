@@ -72,6 +72,7 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     // resize rendering quad to fit window if required
     if(fit_window!=NULL){
         float ratio = (float) renderQuad.w / (float) renderQuad.h;
+        fit_window->update_size();
 
         if(fit_window->get_width() < renderQuad.w){
             renderQuad.w = fit_window->get_width();
@@ -82,7 +83,7 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
             renderQuad.h = fit_window->get_height();
             renderQuad.w = (int) (ratio*renderQuad.h);
         }
-        std::cout << "Render size changed: " << renderQuad.w << ", " << renderQuad.h << std::endl;
+        // std::cout << "Render size changed: " << renderQuad.w << ", " << renderQuad.h << std::endl;
     }
 
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);

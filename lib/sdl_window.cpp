@@ -34,6 +34,10 @@ SDL_Window* Window::get_window(){
 
 // ------------ WRAPPED FUNCTIONS ------------
 
+void Window::update_size(){
+    SDL_GetWindowSize(win_, &win_width, &win_height);
+}
+
 int Window::get_width(){
     return win_width;
 }

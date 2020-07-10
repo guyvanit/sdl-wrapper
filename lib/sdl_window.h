@@ -33,6 +33,8 @@ class Window{
         // "wraps" SDL_GetWindowSize
         int get_width();
         int get_height();
+        // updates var storing window size
+        void update_size();
 
         // wraps SDL_SetWindowSize
         void set_size(int w, int h);
