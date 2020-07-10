@@ -46,8 +46,8 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
     // stores non-NULL texture into tex_
     tex_ = texture;
 
-    std::cout << "SDL Texture image loaded." << std::endl;
-    std::cout << "tex_height: " << tex_height << ", tex_width: " << tex_width << std::endl;
+    std::cout << "SDL Texture image: " << fpath << " loaded." << std::endl;
+    // std::cout << "tex_height: " << tex_height << ", tex_width: " << tex_width << std::endl;
 
 }
 
@@ -102,7 +102,7 @@ void Texture::free(){
         tex_width = 0;
         tex_height = 0;
     }
-    std::cout << "SDL Texture freed." << std::endl;
+    // std::cout << "SDL Texture freed." << std::endl;
 }
 
 int Texture::get_width(){
