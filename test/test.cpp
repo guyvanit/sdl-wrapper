@@ -24,11 +24,17 @@ int main(){ try{
         SDLwrap::Surface surf = SDLwrap::Surface();
         std::string fname = "test_img.jpg";
         surf.loadFile(fname);
-        std::cout << surf.get_surface() << std::endl;
+        // std::cout << surf.get_surface() << std::endl;
 
         // test texture wrapper
         SDLwrap::Texture tex = SDLwrap::Texture();
         tex.loadFile(ren, fname);
+
+        // test texture rendering
+        tex.fit_window = &win;
+        std::cout << tex.fit_window << std::endl;
+        // std::cout << win.get_width() << " : " << win.get_height() << std::endl;
+        tex.render(ren);
 
     }catch(SDLwrap::Exception &e){
 
