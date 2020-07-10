@@ -36,6 +36,11 @@ class Texture{
         // var indicating window to fit image to
         Window* fit_window;
 
+        // -- flags --
+
+        // bool indc. the rendering to be at the center of window
+        bool FLAG_RENDER_CENTER;
+
 };
 
 }

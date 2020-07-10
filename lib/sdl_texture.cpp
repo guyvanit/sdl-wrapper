@@ -14,6 +14,7 @@ Texture::Texture(){
     tex_height = 0;
 
     fit_window = NULL;
+    FLAG_RENDER_CENTER = false;
     // std::cout << "SDL Texture initialised." << std::endl;
 }
 
@@ -59,8 +60,10 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
         renderQuad.h = clip->h;
     }
 
-    // resize rendering quad to fit window if required (maintains texture ratio)
+    // if window to fit is given
     if(fit_window!=NULL){
+
+        // resize rendering quad to fit window if required (maintains texture ratio)
         float ratio = (float) renderQuad.w / (float) renderQuad.h;
 
         // obtain window width + height
@@ -78,6 +81,13 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
             renderQuad.w = (int) (ratio*renderQuad.h);
         }
         // std::cout << "Render size changed: " << renderQuad.w << ", " << renderQuad.h << std::endl;
+
+        // if flag to center rendering is given
+        if(FLAG_RENDER_CENTER){
+            renderQuad.x = (win_w/2) - (renderQuad.w/2);
+            renderQuad.y = (win_h/2) - (renderQuad.h/2);
+        }
+
     }
 
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
