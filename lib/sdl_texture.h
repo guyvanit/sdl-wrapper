@@ -31,6 +31,8 @@ class Texture{
         int get_width();
         int get_height();
 
+        // ------------ VARIABLES ------------
+
         // var indicating window to fit image to
         Window* fit_window;
 
