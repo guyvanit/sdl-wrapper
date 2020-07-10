@@ -9,8 +9,6 @@ namespace SDLwrap{
 class Window{
 
     SDL_Window* win_;
-    int win_width;
-    int win_height;
 
     public:
 
@@ -30,11 +28,8 @@ class Window{
 
         // --- wrapped SDL functions ---
 
-        // "wraps" SDL_GetWindowSize
-        int get_width();
-        int get_height();
-        // updates var storing window size
-        void update_size();
+        // wraps SDL_GetWindowSize
+        void get_size(int *w, int *h);
 
         // wraps SDL_SetWindowSize
         void set_size(int w, int h);
