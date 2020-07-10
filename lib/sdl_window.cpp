@@ -12,6 +12,11 @@ Window::Window(const std::string &title, int x, int y, int w, int h, Uint32 flag
     if(win_==NULL){
         throw Exception("Window::Window()");
     }
+
+    // set window size attributes
+    win_width = w;
+    win_height = h;
+
     // std::cout << "SDL Window initalised." << std::endl;
 
 }
@@ -26,5 +31,28 @@ Window::~Window(){
 SDL_Window* Window::get_window(){
     return win_;
 }
+
+// ------------ WRAPPED FUNCTIONS ------------
+
+int Window::get_width(){
+    return win_width;
+}
+
+int Window::get_height(){
+    return win_height;
+}
+
+void Window::set_size(int w, int h){
+
+    // NOTE: do we need to check for w>0 and h>0 ???
+    if(w>0 && h>0){
+        SDL_SetWindowSize(win_, w, h);
+        win_width = w;
+        win_height = h;
+    }
+
+}
+
+// ------------------------------------------
 
 }
