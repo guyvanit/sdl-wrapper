@@ -13,9 +13,7 @@ Texture::Texture(){
     tex_width = 0;
     tex_height = 0;
 
-    ren_width = 0;
-    ren_height = 0;
-
+    fit_window = NULL;
     // std::cout << "SDL Texture initialised." << std::endl;
 }
 
@@ -29,10 +27,6 @@ void Texture::free(){
         tex_ = NULL;
         tex_width = 0;
         tex_height = 0;
-
-        ren_width = 0;
-        ren_height = 0;
-
     }
     std::cout << "SDL Texture freed." << std::endl;
 }
@@ -56,10 +50,6 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
         tex_width = tempSurface.get_surface()->w;
         tex_height = tempSurface.get_surface()->h;
 
-        ren_width = tex_width;
-        ren_height = tex_height;
-        // std::cout << ren_width << " : " << ren_height << std::endl;
-
     }
 
     // stores non-NULL texture into tex_
@@ -73,10 +63,26 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
 void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
 
     // construct viewport quad
-    SDL_Rect renderQuad = {x, y, ren_width, ren_height};
+    SDL_Rect renderQuad = {x, y, tex_width, tex_height};
     if(clip != NULL){
         renderQuad.w = clip->w;
         renderQuad.h = clip->h;
+    }
+
+    // resize rendering quad to fit window if required
+    if(fit_window!=NULL){
+        float ratio = (float) renderQuad.w / (float) renderQuad.h;
+
+        if(fit_window->get_width() < renderQuad.w){
+            renderQuad.w = fit_window->get_width();
+            renderQuad.h = (int) (renderQuad.w/ratio);
+        }
+
+        if(fit_window->get_height() < renderQuad.h){
+            renderQuad.h = fit_window->get_height();
+            renderQuad.w = (int) (ratio*renderQuad.h);
+        }
+        std::cout << "Render size changed: " << renderQuad.w << ", " << renderQuad.h << std::endl;
     }
 
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);

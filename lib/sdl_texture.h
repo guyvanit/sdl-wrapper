@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "sdl_renderer.h"
+#include "sdl_window.h"
 
 namespace SDLwrap{
 
@@ -11,9 +12,6 @@ class Texture{
     SDL_Texture* tex_;
     int tex_width;
     int tex_height;
-
-    int ren_width;
-    int ren_height;
 
     public:
         Texture();
@@ -25,9 +23,14 @@ class Texture{
 
         // rendering function
         void render(Renderer &ren, int x=0, int y=0, SDL_Rect* clip=NULL);
+        // fit image size to size of window
+        void fitWindow(Window &win);
 
         // clean up texture
         void free();
+
+        // var indicating window to fit image to
+        Window* fit_window;
 
 };
 
