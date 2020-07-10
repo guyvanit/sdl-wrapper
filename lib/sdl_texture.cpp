@@ -12,6 +12,10 @@ Texture::Texture(){
     tex_ = NULL;
     tex_width = 0;
     tex_height = 0;
+
+    ren_width = 0;
+    ren_height = 0;
+
     // std::cout << "SDL Texture initialised." << std::endl;
 }
 
@@ -23,8 +27,14 @@ void Texture::free(){
     if(tex_!=NULL){
         SDL_DestroyTexture(tex_);
         tex_ = NULL;
+        tex_width = 0;
+        tex_height = 0;
+
+        ren_width = 0;
+        ren_height = 0;
+
     }
-    // std::cout << "SDL Texture freed." << std::endl;
+    std::cout << "SDL Texture freed." << std::endl;
 }
 
 void Texture::loadFile(Renderer &ren, std::string &fpath){
@@ -46,6 +56,10 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
         tex_width = tempSurface.get_surface()->w;
         tex_height = tempSurface.get_surface()->h;
 
+        ren_width = tex_width;
+        ren_height = tex_height;
+        // std::cout << ren_width << " : " << ren_height << std::endl;
+
     }
 
     // stores non-NULL texture into tex_
@@ -59,7 +73,7 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
 void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
 
     // construct viewport quad
-    SDL_Rect renderQuad = {x, y, tex_width, tex_height};
+    SDL_Rect renderQuad = {x, y, ren_width, ren_height};
     if(clip != NULL){
         renderQuad.w = clip->w;
         renderQuad.h = clip->h;

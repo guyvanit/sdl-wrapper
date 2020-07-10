@@ -12,6 +12,9 @@ class Texture{
     int tex_width;
     int tex_height;
 
+    int ren_width;
+    int ren_height;
+
     public:
         Texture();
         ~Texture();
