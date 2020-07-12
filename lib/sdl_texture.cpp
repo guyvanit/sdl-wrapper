@@ -18,7 +18,6 @@ Texture::Texture(){
     fit_window = NULL;
     FLAG_RENDER_CENTER = false;
     FLAG_SCALE_IMG = false;
-    FLAG_SCALE_WINDOW = false;
 
     // std::cout << "SDL Texture initialised." << std::endl;
 }
@@ -65,15 +64,34 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
         renderQuad.h = clip->h;
     }
 
+    // calculate the ratio of image dimensions to preserve
+    float ratio = (float) renderQuad.w / (float) renderQuad.h;
+
+    // -- obtain screen details --
+    SDL_DisplayMode dm;
+    SDL_GetCurrentDisplayMode(0, &dm);
+    int screen_w = dm.w;
+    int screen_h = dm.h;
+
+    // std::cout << "Screen size: " << screen_w << " , " << screen_h << std::endl;
+
+    // render texture to screen size if image is too large
+    if(screen_w < renderQuad.w){
+        renderQuad.w = screen_w;
+        renderQuad.h = (int) (renderQuad.w/ratio);
+    }
+    if(screen_h < renderQuad.h){
+        renderQuad.h = screen_h;
+        renderQuad.w = (int) (ratio*renderQuad.h);
+    }
+
     // if window to fit is given
     if(fit_window!=NULL){
 
-        // obtain window width + height
+        // -- obtain window details --
         int win_w;
         int win_h;
         fit_window->get_size(&win_w, &win_h);
-
-        float ratio = (float) renderQuad.w / (float) renderQuad.h;
 
         // if flag given to scale iamge to window
         if(FLAG_SCALE_IMG){

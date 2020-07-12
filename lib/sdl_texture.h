@@ -42,8 +42,6 @@ class Texture{
         bool FLAG_RENDER_CENTER;
         // indc. image to be scaled automatically to fit to window
         bool FLAG_SCALE_IMG;
-        // indc. window to be scaled to fit window?
-        bool FLAG_SCALE_WINDOW;
 
 };
 
