@@ -33,13 +33,17 @@ class Texture{
 
         // ------------ VARIABLES ------------
 
-        // var indicating window to fit image to
+        // var indicating window to fit image with
         Window* fit_window;
 
         // -- flags --
 
         // bool indc. the rendering to be at the center of window
         bool FLAG_RENDER_CENTER;
+        // indc. image to be scaled automatically to fit to window
+        bool FLAG_SCALE_IMG;
+        // indc. window to be scaled to fit window?
+        bool FLAG_SCALE_WINDOW;
 
 };
 
