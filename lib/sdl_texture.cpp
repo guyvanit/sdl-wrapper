@@ -52,7 +52,7 @@ void Texture::loadFile(Renderer &ren, std::string &fpath){
     tex_ = texture;
 
     std::cout << "SDL Texture image: " << fpath << " loaded." << std::endl;
-    // std::cout << "tex_height: " << tex_height << ", tex_width: " << tex_width << std::endl;
+    std::cout << "tex_height: " << tex_height << ", tex_width: " << tex_width << std::endl;
 
 }
 
@@ -73,11 +73,12 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
         int win_h;
         fit_window->get_size(&win_w, &win_h);
 
+        float ratio = (float) renderQuad.w / (float) renderQuad.h;
+
         // if flag given to scale iamge to window
         if(FLAG_SCALE_IMG){
 
             // resize rendering quad to fit window if required (maintains texture ratio)
-            float ratio = (float) renderQuad.w / (float) renderQuad.h;
 
             if(win_w < renderQuad.w){
                 renderQuad.w = win_w;
