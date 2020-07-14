@@ -23,6 +23,11 @@ class Texture{
         Texture();
         ~Texture();
 
+        // copy constructor + copy assignment operator
+        // -> do not allow copy of resources of Texture class
+        Texture(const Texture& that) = delete;
+        Texture& operator=(const Texture& that) = delete;
+
         // ways of loading texture into SDL_Texture
         void loadFile(Renderer &ren, std::string &fpath);
         void loadText(std::string &text);

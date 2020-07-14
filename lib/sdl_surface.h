@@ -14,6 +14,11 @@ class Surface{
         Surface();
         ~Surface();
 
+        // copy constructor + copy assignment operator
+        // -> do not allow copy of resources of Surface class
+        Surface(const Surface& that) = delete;
+        Surface& operator=(const Surface& that) = delete;
+
         // ways of loading into SDL_Surface
         void loadFile(std::string &fpath);
 

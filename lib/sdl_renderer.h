@@ -14,6 +14,11 @@ class Renderer{
         Renderer(Window &window, int index=-1, Uint32 flags=SDL_RENDERER_ACCELERATED);
         ~Renderer();
 
+        // copy constructor + copy assignment operator
+        // -> do not allow copy of resources of Renderer class
+        Renderer(const Renderer& that) = delete;
+        Renderer& operator=(const Renderer& that) = delete;
+
         // -- wrapped SDL_Renderer functions --
 
         // wraps SDL_SetRenderDrawColor()
