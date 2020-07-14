@@ -25,14 +25,13 @@ Texture::Texture(){
 
 Texture::~Texture(){
     free();
-    // std::cout << "TEST!" << std::endl;
+    std::cout << "SDL texture destoyed." << std::endl;
 }
 
 void Texture::free(){
     if(tex_!=NULL){
         SDL_DestroyTexture(tex_);
         reset_var();
-        // init_render_ = true;
     }
     // std::cout << "SDL Texture freed." << std::endl;
 }
@@ -41,6 +40,7 @@ void Texture::reset_var(){
     tex_ = NULL;
     tex_width = 0;
     tex_height = 0;
+    init_render_ = true;
 }
 
 void Texture::loadFile(Renderer &ren, std::string &fpath){
@@ -104,6 +104,13 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
 
     // if window to fit is given
     if(fit_window!=NULL){
+
+        // --- INIT RENDERING PROCEDURE --
+        if(init_render_){
+            // initalise texture window with same size as texture
+            fit_window->set_size(renderQuad.w, renderQuad.h);
+            init_render_ = false;
+        }
 
         // -- obtain window details --
         int win_w;

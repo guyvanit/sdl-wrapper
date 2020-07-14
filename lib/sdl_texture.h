@@ -14,7 +14,7 @@ class Texture{
     int tex_height;
 
     // used for switching between intial rendering
-    // bool init_render_;
+    bool init_render_;
 
     // function for resetting class variables
     void reset_var();
