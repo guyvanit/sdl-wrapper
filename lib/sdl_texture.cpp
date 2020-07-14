@@ -13,17 +13,20 @@ Texture::Texture(){
     tex_width = 0;
     tex_height = 0;
 
-    // -- set default value for vars + flags
-
+    // set default value for vars + flags
     fit_window = NULL;
     FLAG_RENDER_CENTER = false;
     FLAG_SCALE_IMG = false;
+
+    // enable initial rendering procedure
+    // init_render_ = true;
 
     // std::cout << "SDL Texture initialised." << std::endl;
 }
 
 Texture::~Texture(){
     free();
+    std::cout << "TEST!" << std::endl;
 }
 
 void Texture::loadFile(Renderer &ren, std::string &fpath){
@@ -130,6 +133,7 @@ void Texture::free(){
         tex_ = NULL;
         tex_width = 0;
         tex_height = 0;
+        // init_render_ = true;
     }
     // std::cout << "SDL Texture freed." << std::endl;
 }

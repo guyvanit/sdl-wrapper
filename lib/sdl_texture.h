@@ -13,6 +13,12 @@ class Texture{
     int tex_width;
     int tex_height;
 
+    // used for switching between intial rendering
+    // bool init_render_;
+
+    // function for resetting class variables
+    // void reset_var();
+
     public:
         Texture();
         ~Texture();
