@@ -9,9 +9,8 @@
 namespace SDLwrap{
 
 Texture::Texture(){
-    tex_ = NULL;
-    tex_width = 0;
-    tex_height = 0;
+
+    reset_var();
 
     // set default value for vars + flags
     fit_window = NULL;
@@ -26,7 +25,22 @@ Texture::Texture(){
 
 Texture::~Texture(){
     free();
-    std::cout << "TEST!" << std::endl;
+    // std::cout << "TEST!" << std::endl;
+}
+
+void Texture::free(){
+    if(tex_!=NULL){
+        SDL_DestroyTexture(tex_);
+        reset_var();
+        // init_render_ = true;
+    }
+    // std::cout << "SDL Texture freed." << std::endl;
+}
+
+void Texture::reset_var(){
+    tex_ = NULL;
+    tex_width = 0;
+    tex_height = 0;
 }
 
 void Texture::loadFile(Renderer &ren, std::string &fpath){
@@ -125,17 +139,6 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     SDL_RenderCopy(ren.get_renderer(), tex_, clip, &renderQuad);
     // std::cout << "SDL Texture image rendered." << std::endl;
 
-}
-
-void Texture::free(){
-    if(tex_!=NULL){
-        SDL_DestroyTexture(tex_);
-        tex_ = NULL;
-        tex_width = 0;
-        tex_height = 0;
-        // init_render_ = true;
-    }
-    // std::cout << "SDL Texture freed." << std::endl;
 }
 
 int Texture::get_width(){

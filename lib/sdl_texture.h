@@ -17,7 +17,7 @@ class Texture{
     // bool init_render_;
 
     // function for resetting class variables
-    // void reset_var();
+    void reset_var();
 
     public:
         Texture();
