@@ -16,6 +16,7 @@ Texture::Texture(){
     fit_window = NULL;
     FLAG_RENDER_CENTER = false;
     FLAG_SCALE_IMG = false;
+    FLAG_SCALE_WIN = false;
 
     // enable initial rendering procedure
     // init_render_ = true;
@@ -106,10 +107,12 @@ void Texture::render(Renderer &ren, int x, int y, SDL_Rect* clip){
     if(fit_window!=NULL){
 
         // --- INIT RENDERING PROCEDURE --
-        if(init_render_){
-            // initalise texture window with same size as texture
-            fit_window->set_size(renderQuad.w, renderQuad.h);
-            init_render_ = false;
+        if(FLAG_SCALE_WIN){
+            if(init_render_){
+                // initalise texture window with same size as texture
+                fit_window->set_size(renderQuad.w, renderQuad.h);
+                init_render_ = false;
+            }
         }
 
         // -- obtain window details --
