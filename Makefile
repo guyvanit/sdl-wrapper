@@ -4,8 +4,7 @@ INDIR = lib
 BINDIR = bin
 
 CXXFLAGS = -std=c++17 -Wall -F /Library/Frameworks -fPIC
-LDFLAGS = -framework SDL2 -I /Library/Frameworks/SDL2.framework/Headers
-LD2FLAGS = -framework SDL2_image -I /Library/Frameworks/SDL2_image.framework/Headers
+SDLFLAGS = -framework SDL2 -framework SDL2_image
 
 # --- this makefile is used to construct the .dylib file ---
 
@@ -20,7 +19,7 @@ OBJS = $(patsubst %,$(BINDIR)/%,$(_OBJS))
 # construct shared library -> uses ".dylib" for MAC OS
 # we use "-dynamiclib" instead of "-shared" (for OS X?)
 wrap_lib: $(OBJS)
-	$(CXX) $(LDFLAGS) $(LD2FLAGS) -dynamiclib -o libsdl_wrap.dylib $(BINDIR)/*.o
+	$(CXX) $(SDLFLAGS) -dynamiclib -o libsdl_wrap.dylib $(BINDIR)/*.o
 
 # construct respective object files
 $(BINDIR)/%.o: $(INDIR)/%.cpp $(INDIR)/%.h
@@ -28,7 +27,7 @@ $(BINDIR)/%.o: $(INDIR)/%.cpp $(INDIR)/%.h
 
 # --- moving / setting-up commands ---
 
-setup: lib_copy h_copy
+install: lib_copy h_copy
 
 lib_copy: libsdl_wrap.dylib
 	cp libsdl_wrap.dylib /usr/local/lib
