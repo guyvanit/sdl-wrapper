@@ -4,7 +4,7 @@ This is mainly for use with sdl-gallery.
 
 ## Building dynamic library (for MAC OS)
 1. Run "make" in cloned directory -> get libsdl_wrap.dylib in directory
-2. Run "setup" -> move libsdl_wrap.dylib to /usr/local/lib and headers to /usr/local/include
+2. Run "install" -> move libsdl_wrap.dylib to /usr/local/lib and headers to /usr/local/include
 3. Link to this library by using options in g++: -L/usr/local/lib -lsdl_wrap -I/usr/local/include
 
 ## Dependencies?:
