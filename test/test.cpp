@@ -37,6 +37,7 @@ int main(){ try{
         surf.loadFile(fname);
         // std::cout << surf.get_surface() << std::endl;
 
+        sdl.specGL(3,3,true);
         sdl.setVSync(1);
 
         // test texture wrapper
