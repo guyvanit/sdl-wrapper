@@ -1,6 +1,9 @@
 #include <iostream>
 
 #include "SDLwrap/SDL_WRAP.h"
+#include <GL/glew.h>
+#include <SDL2/SDL_opengl.h>
+
 #include "test.h"
 
 int main(){ try{
@@ -16,6 +19,8 @@ int main(){ try{
 
         // test window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
+        SDL_GLContext cont = win.getGLContext();
+        std::cout << "cont: " << cont << std::endl;
         // std::cout << "Window: " << &win << std::endl;
 
         // test renderer wrapper object

@@ -2,6 +2,7 @@ CXX = g++-9
 
 # --- this makefile is used for constructing test file exectuable only ---
 # OUTDIR -> directory containing the dylib file for testing
+GLFLAGS = -L/usr/local/lib -lGLEW -lGL
 
 all: test
 
@@ -9,7 +10,7 @@ all: test
 
 # link all the other object files to construct the executable
 test: test.o /usr/local/lib/libsdl_wrap.dylib
-	$(CXX) -o test -L/usr/local/lib -lsdl_wrap -I/usr/local/include test.o
+	$(CXX) $(GLFLAGS) -o test -L/usr/local/lib -lsdl_wrap -I/usr/local/include test.o
 
 # create object file for our main test file -> contains main()
 test.o: test.cpp test.h
