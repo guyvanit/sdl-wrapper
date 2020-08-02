@@ -19,7 +19,8 @@ int main(){ try{
 
         // test window wrapper object
         SDLwrap::Window win = SDLwrap::Window();
-        SDL_GLContext cont = win.getGLContext();
+        win.set_GLContext();
+        SDL_GLContext cont = win.get_GLContext();
         std::cout << "cont: " << cont << std::endl;
         // std::cout << "Window: " << &win << std::endl;
 
