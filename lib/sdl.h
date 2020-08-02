@@ -14,6 +14,10 @@ class SDL{
         // print SDL version
         void printVer();
 
+        // ------ OPENGL FUNCS ------
+
+        void setVSync(int mode);
+
 };
 
 }

@@ -52,4 +52,13 @@ void SDL::printVer(){
 
 }
 
+// ----------- OPENGL FUNCTIONS -----------
+
+void SDL::setVSync(int mode){
+    int n = SDL_GL_SetSwapInterval(mode);
+    if(n<0){
+        std::cout << "Warning: SDL OpenGL Vsync setup failed." << std::endl;
+    }
+}
+
 }
