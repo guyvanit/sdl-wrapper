@@ -11,6 +11,9 @@ class SDL{
         SDL(Uint32 flags=SDL_INIT_VIDEO);
         ~SDL();
 
+        // print SDL version
+        void printVer();
+
 };
 
 }
