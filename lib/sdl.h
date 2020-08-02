@@ -16,6 +16,7 @@ class SDL{
 
         // ------ OPENGL FUNCS ------
 
+        void specGL(int major, int minor, bool core);
         void setVSync(int mode);
 
 };

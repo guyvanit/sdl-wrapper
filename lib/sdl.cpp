@@ -54,6 +54,16 @@ void SDL::printVer(){
 
 // ----------- OPENGL FUNCTIONS -----------
 
+void SDL::specGL(int major, int minor, bool core){
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, major);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, minor);
+    if(core){
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    }else{
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+    }
+}
+
 void SDL::setVSync(int mode){
     int n = SDL_GL_SetSwapInterval(mode);
     if(n<0){
