@@ -37,6 +37,8 @@ int main(){ try{
         surf.loadFile(fname);
         // std::cout << surf.get_surface() << std::endl;
 
+        sdl.setVSync(1);
+
         // test texture wrapper
         SDLwrap::Texture tex = SDLwrap::Texture();
         // std::cout << "Texture: " << &tex << std::endl;
