@@ -34,6 +34,10 @@ class Window{
         // wraps SDL_SetWindowSize
         void set_size(int w, int h);
 
+        // --- openGL functions ---
+
+        SDL_GLContext getGLContext();
+
 };
 
 }

@@ -43,6 +43,17 @@ void Window::set_size(int w, int h){
 
 }
 
-// ------------------------------------------
+// ------------ OPENGL FUNCTIONS ------------
+
+SDL_GLContext Window::getGLContext(){
+
+    SDL_GLContext cont;
+    cont = SDL_GL_CreateContext(win_);
+    if(cont==NULL){
+        throw Exception("Window::getGLContext()");
+    }
+
+    return cont;
+}
 
 }
