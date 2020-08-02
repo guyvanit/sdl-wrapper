@@ -9,6 +9,7 @@ namespace SDLwrap{
 class Window{
 
     SDL_Window* win_;
+    SDL_GLContext GLcont_;
 
     public:
 
@@ -36,7 +37,8 @@ class Window{
 
         // --- openGL functions ---
 
-        SDL_GLContext getGLContext();
+        void set_GLContext();
+        SDL_GLContext get_GLContext();
 
 };
 
