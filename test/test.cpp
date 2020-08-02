@@ -7,6 +7,7 @@ int main(){ try{
 
         // test SDL env
         SDLwrap::SDL sdl = SDLwrap::SDL();
+        sdl.printVer();
         // std::cout << "SDL: " << &sdl << std::endl;
 
         //test SDL_IMG
