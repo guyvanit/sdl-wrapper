@@ -1,4 +1,4 @@
-CXX = g++-9
+CXX = g++-10
 
 INDIR = lib
 BINDIR = bin

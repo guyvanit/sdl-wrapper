@@ -1,4 +1,4 @@
-CXX = g++-9
+CXX = g++-10
 
 # --- this makefile is used for constructing test file exectuable only ---
 # OUTDIR -> directory containing the dylib file for testing
