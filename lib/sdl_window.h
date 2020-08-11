@@ -40,6 +40,9 @@ class Window{
         void set_GLContext();
         SDL_GLContext get_GLContext();
 
+        // update window with OpenGL context
+        void updateGL();
+
 };
 
 }

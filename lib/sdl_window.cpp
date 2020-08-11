@@ -56,4 +56,8 @@ SDL_GLContext Window::get_GLContext(){
     return GLcont_;
 }
 
+void Window::updateGL(){
+    SDL_GL_SwapWindow(win_);
+}
+
 }
